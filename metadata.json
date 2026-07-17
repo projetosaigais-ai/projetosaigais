@@ -1,0 +1,6 @@
+{
+  "name": "Agenda de Saúde",
+  "description": "Aplicativo para gerenciar consultas e exames com sincronização bidirecional com o Google Agenda.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

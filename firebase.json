@@ -1,0 +1,12 @@
+{
+  "firestore": [
+    {
+      "database": "(default)",
+      "rules": "firestore.rules"
+    },
+    {
+      "database": "ai-studio-agendadesade-3f9c2d79-c924-4578-af24-e18ea1fc8401",
+      "rules": "firestore.rules"
+    }
+  ]
+}

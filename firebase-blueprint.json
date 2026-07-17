@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "EmailLog": {
+      "title": "EmailLog",
+      "description": "Log de envio de emails de alerta",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "to": { "type": "string" },
+        "subject": { "type": "string" },
+        "status": { "type": "string", "enum": ["success", "failure"] },
+        "error": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["to", "subject", "status"]
+    },
+    "Medicamento": {
+      "title": "Medicamento",
+      "description": "Medicamento cadastrado com controle de estoque",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "pessoaId": { "type": "string" },
+        "nome": { "type": "string" },
+        "principioAtivo": { "type": "string" },
+        "dosagem": { "type": "string" },
+        "quantidadeAtual": { "type": "integer" },
+        "estoqueMinimo": { "type": "integer" },
+        "posologia": { "type": "string" },
+        "vezesAoDia": { "type": "integer" },
+        "ownerId": { "type": "string" },
+        "dataAlteracaoEstoque": { "type": "string" },
+        "ultimoEmailEnviadoEm": { "type": "string" }
+      },
+      "required": ["nome", "quantidadeAtual", "estoqueMinimo", "ownerId"]
+    },
+    "DevImprovement": {
+      "title": "DevImprovement",
+      "description": "Anotação de melhorias e tarefas pendentes/concluídas do ambiente de desenvolvimento",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string", "enum": ["ui", "bug", "feature", "improvement"] },
+        "priority": { "type": "string", "enum": ["low", "medium", "high"] },
+        "createdAt": { "type": "string" },
+        "createdAtMs": { "type": "integer" },
+        "completed": { "type": "boolean" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["title", "category", "priority", "completed"]
+    }
+  },
+  "firestore": {
+    "email_logs": {
+      "schema": "EmailLog",
+      "description": "Logs de e-mails enviados"
+    },
+    "medicamentos": {
+      "schema": "Medicamento",
+      "description": "Lista de medicamentos"
+    },
+    "dev_improvements": {
+      "schema": "DevImprovement",
+      "description": "Lista de melhorias e sugestões de desenvolvimento"
+    }
+  }
+}
